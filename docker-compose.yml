@@ -1,0 +1,45 @@
+version: '3'
+services:
+  http:
+    container_name: web_server
+    build: logscrapper/.
+    volumes:
+      - ./logscrapper/files/logscrapper.py:/usr/bin/logscrapper.py
+      - ./logscrapper/files/telegram.py:/usr/bin/telegram.py
+      - ./logscrapper/files/IPcheck.py:/usr/bin/IPcheck.py
+      - ./logscrapper/start.sh:/usr/bin/startcontainer
+    ports:
+      - 80:80
+    restart: always
+  
+  geojson:
+    container_name: geojsonAPI
+    build: geojsonAPI/alpine/.
+    volumes:
+      - ./geojsonAPI/file:/python
+    ports:
+      - 81:80
+    restart: always
+  
+  map:
+    container_name: map
+    build: countries_view/.
+    volumes:
+      - ./countries_view/mapa.py:/python/mapa.py
+    ports:
+      - 82:8000
+    restart: always
+  
+  db:
+    container_name: DB
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=Welcome1
+      - MARIADB_USER=python
+      - MARIADB_PASSWORD=Welcome1
+      - MARIADB_DATABASE=pythontests
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database:/var/lib/mysql:Z
+    restart: always
