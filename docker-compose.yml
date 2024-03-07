@@ -9,6 +9,11 @@ services:
       - ./logscrapper/start.sh:/usr/bin/startcontainer
     ports:
       - 80:80
+    environment:
+      - DB_USER=python
+      - DB_PASS=Welcome1
+      - DB_NAME=pythontests
+      - DB_HOST=DB
     restart: always
   
   geojson:
@@ -27,6 +32,11 @@ services:
       - ./countries_view/mapa.py:/python/mapa.py
     ports:
       - 82:8000
+    environment:
+      - DB_USER=python
+      - DB_PASS=Welcome1
+      - DB_NAME=pythontests
+      - DB_HOST=DB
     restart: always
   
   db:

@@ -3,8 +3,14 @@ from sqlalchemy import create_engine
 import pandas
 import folium
 import requests
+import os
 
-con = create_engine("mariadb+pymysql://python:Welcome1@DB/pythontests?charset=utf8mb4")
+dbuser = os.getenv("DB_USER")
+dbpass = os.getenv("DB_PASS")
+dbhost = os.getenv("DB_NAME")
+dbname = os.getenv("DB_HOST")
+constr = "mariadb+pymysql://" + dbuser + ":" + dbpass + "@" + dbhost + "/" + dbname + "?charset=utf8mb4"
+con = create_engine(constr)
 app = Flask(__name__)
 
 @app.route("/")

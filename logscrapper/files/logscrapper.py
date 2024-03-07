@@ -2,6 +2,7 @@
 import sys
 import signal
 import mariadb
+import os
 from datetime import datetime
 from IPcheck import IPchecker
 
@@ -13,10 +14,10 @@ def signalHandler(signum,frame):
 
 # Connection params
 conn_params= {
-    "user" : "python",
-    "password" : "Welcome1",
-    "host" : "DB",
-    "database" : "pythontests"
+    "user" : os.getenv("DB_USER"),
+    "password" : os.getenv("DB_PASS"),
+    "host" : os.getenv("DB_NAME"),
+    "database" : os.getenv("DB_HOST")
 }
 
 # Creating connection object
