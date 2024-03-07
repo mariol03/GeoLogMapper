@@ -5,7 +5,6 @@ services:
     build: logscrapper/.
     volumes:
       - ./logscrapper/files/logscrapper.py:/usr/bin/logscrapper.py
-      - ./logscrapper/files/telegram.py:/usr/bin/telegram.py
       - ./logscrapper/files/IPcheck.py:/usr/bin/IPcheck.py
       - ./logscrapper/start.sh:/usr/bin/startcontainer
     ports:
