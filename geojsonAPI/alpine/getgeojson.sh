@@ -22,21 +22,22 @@ checksum_check(){
 }
 
 if [[ $1 = "10m" ]]; then
-    wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+    wget https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip
     if [[ $(checksum_check ne_10m_admin_0_countries.zip) -gt 0 ]]; then
         rm ne_10m_admin_0_countries.zip
     else
         process_file ne_10m_admin_0_countries.zip
     fi;
 elif [[ $1 = "50m" ]]; then
-    wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip
+    wget https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip 
     if [[ $(checksum_check ne_50m_admin_0_countries.zip) -gt 0 ]]; then
         rm ne_50m_admin_0_countries.zip
     else
         process_file ne_50m_admin_0_countries.zip
     fi;
 elif [[ $1 = "110m" ]]; then
-    wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
+    wget https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip 
+
     if [[ $(checksum_check ne_110m_admin_0_countries.zip) -gt 0 ]]; then
         rm ne_110m_admin_0_countries.zip
     else
