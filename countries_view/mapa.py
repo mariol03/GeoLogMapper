@@ -7,8 +7,8 @@ import os
 
 dbuser = os.getenv("DB_USER")
 dbpass = os.getenv("DB_PASS")
-dbhost = os.getenv("DB_NAME")
-dbname = os.getenv("DB_HOST")
+dbhost = os.getenv("DB_HOST")
+dbname = os.getenv("DB_NAME")
 constr = "mariadb+pymysql://" + dbuser + ":" + dbpass + "@" + dbhost + "/" + dbname + "?charset=utf8mb4"
 con = create_engine(constr)
 app = Flask(__name__)
