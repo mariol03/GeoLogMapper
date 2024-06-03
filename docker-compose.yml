@@ -14,7 +14,7 @@ services:
       - DB_PASS=Welcome1
       - DB_NAME=pythontests
       - DB_HOST=DB
-    restart: always
+    restart: unless-stopped
   
   geojson:
     container_name: geojsonAPI
@@ -23,7 +23,7 @@ services:
       - ./geojsonAPI/file:/python
     ports:
       - 81:80
-    restart: always
+    restart: unless-stopped
   
   map:
     container_name: map
@@ -37,7 +37,7 @@ services:
       - DB_PASS=Welcome1
       - DB_NAME=pythontests
       - DB_HOST=DB
-    restart: always
+    restart: unless-stopped
   
   db:
     container_name: DB
@@ -51,4 +51,4 @@ services:
       - 3306:3306
     volumes:
       - ./database:/var/lib/mysql:Z
-    restart: always
+    restart: unless-stopped

@@ -1,0 +1,5 @@
+database
+geojsonAPI/file/*.json
+geojsonAPI/file/*.sha1
+geojsonAPI/file/__pycache__
+geojsonAPI/file/__pycache__/geojson.cpython-311.pyc

@@ -19,5 +19,5 @@ def fullscreen():
     mapa = folium.Map(tiles="cartodb positron",zoom_start=3, location=[15.00,0.00])
     geojson = requests.get("http://geojsonAPI/get110m").json()
     datos = pandas.read_sql(sql="select country, timesFromCountry from countries",con=con)
-    folium.Choropleth(geo_data=geojson,data=datos,columns=["country","timesFromCountry"], key_on="feature.properties.ISO_A3").add_to(mapa)
+    folium.Choropleth(geo_data=geojson,data=datos,columns=["country","timesFromCountry"], key_on="feature.properties.ISO_A3_EH").add_to(mapa)
     return mapa.get_root().render()
